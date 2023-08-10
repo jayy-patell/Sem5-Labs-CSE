@@ -1,0 +1,9 @@
+//This is a comment
+/* *****This is a
+******Multiline Comment
+**** */
+int main()
+{
+    printf("Stay hungry,        stay        foolish\n");
+    return 0;
+}

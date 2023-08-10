@@ -1,0 +1,8 @@
+#include <stdio.h>
+#define l long
+
+int main()
+{
+ printf("Stay hungry, stay foolish\n");
+ return 0;
+}
