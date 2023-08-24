@@ -1,0 +1,16 @@
+<int, 1, 1, Keyword>
+<main, 1, 5, Identifier>
+<(, 1, 9, LB>
+<), 1, 10, RB>
+<{, 1, 11, LC>
+<int, 2, 2, Keyword>
+<a, 2, 6, Identifier>
+<=, 2, 8, Assignment Operator>
+<2, 2, 10, Number>
+<;, 2, 11, SS>
+<printf, 3, 2, Keyword>
+<(, 3, 8, LB>
+<"Hello", 3, 9, String Literal>
+<), 3, 14, RB>
+<;, 3, 15, SS>
+<}, 4, 1, RC>

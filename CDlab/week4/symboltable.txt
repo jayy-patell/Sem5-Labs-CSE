@@ -1,0 +1,4 @@
+1 main int func -1
+2 a int id 4
+
+==x==x==x===x==
