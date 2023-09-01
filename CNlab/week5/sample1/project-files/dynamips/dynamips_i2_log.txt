@@ -1,0 +1,10 @@
+Sep 01 03:46:50.035 HYPERVISOR: Release 0.2.23-amd64/Linux (tag 2023010200)
+Sep 01 03:46:50.035 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 58233.
+Sep 01 03:46:50.043 HYPERVISOR: exec_cmd: hypervisor version 
+Sep 01 03:46:50.043 HYPERVISOR: exec_cmd: hypervisor working_dir /home/B210905294/Documents/CNlab-jay/week5/sample1/project-files/dynamips 
+Sep 01 03:46:50.043 GENERAL: working_dir=/home/B210905294/Documents/CNlab-jay/week5/sample1/project-files/dynamips
+Sep 01 03:46:50.044 HYPERVISOR: exec_cmd: frsw create FRSW1 
+Sep 01 03:46:53.658 HYPERVISOR: exec_cmd: frsw delete FRSW1 
+Sep 01 03:46:53.659 HYPERVISOR: exec_cmd: hypervisor stop 
+Sep 01 03:46:54.048 HYPERVISOR: Stopped.
+Sep 01 03:46:54.048 GENERAL: reset done.

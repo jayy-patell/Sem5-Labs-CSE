@@ -1,0 +1,29 @@
+Sep 01 03:59:49.496 HYPERVISOR: Release 0.2.23-amd64/Linux (tag 2023010200)
+Sep 01 03:59:49.496 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 39325.
+Sep 01 03:59:49.504 HYPERVISOR: exec_cmd: hypervisor version 
+Sep 01 03:59:49.504 HYPERVISOR: exec_cmd: hypervisor working_dir /home/B210905294/Documents/CNlab-jay/week5/sample1/project-files/dynamips 
+Sep 01 03:59:49.504 GENERAL: working_dir=/home/B210905294/Documents/CNlab-jay/week5/sample1/project-files/dynamips
+Sep 01 03:59:49.505 HYPERVISOR: exec_cmd: nio_bridge create Hub1 
+Sep 01 04:00:09.029 HYPERVISOR: exec_cmd: nio create_udp udp-aa9cbd74-9e97-4565-bb13-bc2f092adfca 10001 127.0.0.1 10000 
+Sep 01 04:00:09.044 HYPERVISOR: exec_cmd: nio_bridge add_nio Hub1 udp-aa9cbd74-9e97-4565-bb13-bc2f092adfca 
+Sep 01 04:00:13.915 HYPERVISOR: exec_cmd: nio create_udp udp-c4ea72f4-c619-4291-8b3b-af61ef1fbf75 10007 127.0.0.1 10006 
+Sep 01 04:00:13.915 HYPERVISOR: exec_cmd: nio_bridge add_nio Hub1 udp-c4ea72f4-c619-4291-8b3b-af61ef1fbf75 
+Sep 01 04:00:18.722 HYPERVISOR: exec_cmd: nio create_udp udp-07f5ee31-2268-47be-8c58-6e53fd2a6b24 10009 127.0.0.1 10008 
+Sep 01 04:00:18.722 HYPERVISOR: exec_cmd: nio_bridge add_nio Hub1 udp-07f5ee31-2268-47be-8c58-6e53fd2a6b24 
+Sep 01 04:00:25.492 HYPERVISOR: exec_cmd: nio create_udp udp-ccf0875f-122a-4dac-8462-09d3906f7872 10011 127.0.0.1 10010 
+Sep 01 04:00:25.492 HYPERVISOR: exec_cmd: nio_bridge add_nio Hub1 udp-ccf0875f-122a-4dac-8462-09d3906f7872 
+Sep 01 04:04:32.866 HYPERVISOR: exec_cmd: nio bind_filter udp-aa9cbd74-9e97-4565-bb13-bc2f092adfca 2 capture 
+Sep 01 04:04:32.867 HYPERVISOR: exec_cmd: nio setup_filter udp-aa9cbd74-9e97-4565-bb13-bc2f092adfca 2 en10mb /home/B210905294/Documents/CNlab-jay/week5/sample1/project-files/captures/PC1_Ethernet0_to_Hub1_Ethernet0.pcap 
+Sep 01 04:37:22.846 HYPERVISOR: exec_cmd: nio unbind_filter udp-aa9cbd74-9e97-4565-bb13-bc2f092adfca 2 
+Sep 01 04:37:22.847 HYPERVISOR: exec_cmd: nio_bridge remove_nio Hub1 udp-aa9cbd74-9e97-4565-bb13-bc2f092adfca 
+Sep 01 04:37:22.855 HYPERVISOR: exec_cmd: nio delete udp-aa9cbd74-9e97-4565-bb13-bc2f092adfca 
+Sep 01 04:37:22.898 HYPERVISOR: exec_cmd: nio_bridge remove_nio Hub1 udp-07f5ee31-2268-47be-8c58-6e53fd2a6b24 
+Sep 01 04:37:22.915 HYPERVISOR: exec_cmd: nio delete udp-07f5ee31-2268-47be-8c58-6e53fd2a6b24 
+Sep 01 04:37:22.936 HYPERVISOR: exec_cmd: nio_bridge remove_nio Hub1 udp-c4ea72f4-c619-4291-8b3b-af61ef1fbf75 
+Sep 01 04:37:22.956 HYPERVISOR: exec_cmd: nio delete udp-c4ea72f4-c619-4291-8b3b-af61ef1fbf75 
+Sep 01 04:37:22.998 HYPERVISOR: exec_cmd: nio_bridge remove_nio Hub1 udp-ccf0875f-122a-4dac-8462-09d3906f7872 
+Sep 01 04:37:23.016 HYPERVISOR: exec_cmd: nio delete udp-ccf0875f-122a-4dac-8462-09d3906f7872 
+Sep 01 04:37:23.043 HYPERVISOR: exec_cmd: nio_bridge delete Hub1 
+Sep 01 04:37:23.046 HYPERVISOR: exec_cmd: hypervisor stop 
+Sep 01 04:37:23.493 HYPERVISOR: Stopped.
+Sep 01 04:37:23.493 GENERAL: reset done.

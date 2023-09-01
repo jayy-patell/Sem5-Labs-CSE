@@ -1,0 +1,41 @@
+Sep 01 05:04:41.418 HYPERVISOR: Release 0.2.23-amd64/Linux (tag 2023010200)
+Sep 01 05:04:41.418 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 47769.
+Sep 01 05:04:41.426 HYPERVISOR: exec_cmd: hypervisor version 
+Sep 01 05:04:41.426 HYPERVISOR: exec_cmd: hypervisor working_dir /home/B210905294/Documents/CNlab-jay/week5/sample1/project-files/dynamips 
+Sep 01 05:04:41.426 GENERAL: working_dir=/home/B210905294/Documents/CNlab-jay/week5/sample1/project-files/dynamips
+Sep 01 05:04:41.426 HYPERVISOR: exec_cmd: ethsw create Switch1 
+Sep 01 05:04:56.309 HYPERVISOR: exec_cmd: nio create_udp udp-d890055b-7e5b-4f98-8f1c-0428672d55f5 10001 127.0.0.1 10000 
+Sep 01 05:04:56.315 HYPERVISOR: exec_cmd: ethsw add_nio Switch1 udp-d890055b-7e5b-4f98-8f1c-0428672d55f5 
+Sep 01 05:04:56.333 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-d890055b-7e5b-4f98-8f1c-0428672d55f5 1 
+Sep 01 05:04:59.765 HYPERVISOR: exec_cmd: nio create_udp udp-e946d084-2be8-443f-b63c-17351ef579c0 10003 127.0.0.1 10002 
+Sep 01 05:04:59.765 HYPERVISOR: exec_cmd: ethsw add_nio Switch1 udp-e946d084-2be8-443f-b63c-17351ef579c0 
+Sep 01 05:04:59.770 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-e946d084-2be8-443f-b63c-17351ef579c0 1 
+Sep 01 05:05:04.536 HYPERVISOR: exec_cmd: nio create_udp udp-6bd25465-b965-435d-adf7-0ed64f513881 10005 127.0.0.1 10004 
+Sep 01 05:05:04.557 HYPERVISOR: exec_cmd: ethsw add_nio Switch1 udp-6bd25465-b965-435d-adf7-0ed64f513881 
+Sep 01 05:05:04.575 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-6bd25465-b965-435d-adf7-0ed64f513881 1 
+Sep 01 05:05:07.487 HYPERVISOR: exec_cmd: nio create_udp udp-eccd308e-ce7e-45e7-aedd-b6a1ddf985c3 10007 127.0.0.1 10006 
+Sep 01 05:05:07.487 HYPERVISOR: exec_cmd: ethsw add_nio Switch1 udp-eccd308e-ce7e-45e7-aedd-b6a1ddf985c3 
+Sep 01 05:05:07.490 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-eccd308e-ce7e-45e7-aedd-b6a1ddf985c3 1 
+Sep 01 05:05:24.550 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-d890055b-7e5b-4f98-8f1c-0428672d55f5 1 
+Sep 01 05:05:24.564 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-e946d084-2be8-443f-b63c-17351ef579c0 1 
+Sep 01 05:05:24.565 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-6bd25465-b965-435d-adf7-0ed64f513881 1 
+Sep 01 05:05:24.565 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-eccd308e-ce7e-45e7-aedd-b6a1ddf985c3 1 
+Sep 01 05:05:35.215 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-d890055b-7e5b-4f98-8f1c-0428672d55f5 1 
+Sep 01 05:05:35.230 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-e946d084-2be8-443f-b63c-17351ef579c0 1 
+Sep 01 05:05:35.231 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-6bd25465-b965-435d-adf7-0ed64f513881 1 
+Sep 01 05:05:35.232 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-eccd308e-ce7e-45e7-aedd-b6a1ddf985c3 1 
+Sep 01 05:15:52.893 HYPERVISOR: exec_cmd: nio bind_filter udp-d890055b-7e5b-4f98-8f1c-0428672d55f5 2 capture 
+Sep 01 05:15:52.893 HYPERVISOR: exec_cmd: nio setup_filter udp-d890055b-7e5b-4f98-8f1c-0428672d55f5 2 en10mb /home/B210905294/Documents/CNlab-jay/week5/sample1/project-files/captures/PC1_Ethernet0_to_Switch1_Ethernet0.pcap 
+Sep 01 05:21:14.997 HYPERVISOR: exec_cmd: nio unbind_filter udp-d890055b-7e5b-4f98-8f1c-0428672d55f5 2 
+Sep 01 05:21:14.998 HYPERVISOR: exec_cmd: ethsw remove_nio Switch1 udp-d890055b-7e5b-4f98-8f1c-0428672d55f5 
+Sep 01 05:21:15.006 HYPERVISOR: exec_cmd: nio delete udp-d890055b-7e5b-4f98-8f1c-0428672d55f5 
+Sep 01 05:21:15.033 HYPERVISOR: exec_cmd: ethsw remove_nio Switch1 udp-e946d084-2be8-443f-b63c-17351ef579c0 
+Sep 01 05:21:15.046 HYPERVISOR: exec_cmd: nio delete udp-e946d084-2be8-443f-b63c-17351ef579c0 
+Sep 01 05:21:15.066 HYPERVISOR: exec_cmd: ethsw remove_nio Switch1 udp-6bd25465-b965-435d-adf7-0ed64f513881 
+Sep 01 05:21:15.086 HYPERVISOR: exec_cmd: nio delete udp-6bd25465-b965-435d-adf7-0ed64f513881 
+Sep 01 05:21:15.120 HYPERVISOR: exec_cmd: ethsw remove_nio Switch1 udp-eccd308e-ce7e-45e7-aedd-b6a1ddf985c3 
+Sep 01 05:21:15.126 HYPERVISOR: exec_cmd: nio delete udp-eccd308e-ce7e-45e7-aedd-b6a1ddf985c3 
+Sep 01 05:21:15.147 HYPERVISOR: exec_cmd: ethsw delete Switch1 
+Sep 01 05:21:15.149 HYPERVISOR: exec_cmd: hypervisor stop 
+Sep 01 05:21:15.296 HYPERVISOR: Stopped.
+Sep 01 05:21:15.296 GENERAL: reset done.
