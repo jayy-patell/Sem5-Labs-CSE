@@ -1,3 +1,5 @@
+// Removes multiple spaces and comments from a C program
+
 int space()
 {
     FILE *fin, *fo;
@@ -20,13 +22,14 @@ int space()
         }
         if (ca == '/')
         {
-            cb = getc(fin);
-            if (cb == '/')
+            // can also be done using ca and fseek(-1, SEEK_CUR)
+            ca = getc(fin);
+            if (ca == '/')
             {
                 while (ca != '\n')
                     ca = getc(fin);
             }
-            else if (cb == '*')
+            else if (ca == '*')
             {
                 do
                 {
@@ -38,7 +41,7 @@ int space()
             else
             {
                 putc(ca, fo);
-                putc(cb, fo);
+                // putc(cb, fo);
             }
         }
         else

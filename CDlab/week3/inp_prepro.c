@@ -1,4 +1,5 @@
-int main(){
+int main()
+{
  int a = 2;
- printf("Hello");
+ printf("He l lo");
 }
