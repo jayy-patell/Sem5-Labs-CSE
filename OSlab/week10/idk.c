@@ -15,7 +15,7 @@ struct table_entry{
 	int num_args;
 }Table[100];
 
-const char *keywords[] = {"const","return","if","else","for","while"};
+const char *keywords[] = {"const","return","if","else","for","while","int","char","float","double"};   //dont forget to add datatypes here
 const char operator[] = {'+','-','*','%'};
 const char specialsymbols[] = {'(',')','{','}','[',']',';',','};
 const char *datatypes[] = {"int","char","float","double"};
@@ -31,7 +31,7 @@ int isDatatype(const char* str){
 	return 0;
 }
 int isKeyword(const char* str){
-	for(int i=0;i<6;i++){
+	for(int i=0;i<10;i++){
 		if(!strcmp(str,keywords[i])) return 1;
 	}
 	return 0;
@@ -72,8 +72,7 @@ int searchTable(const char* lexeme){
 }
 
 void insertIntoTable(struct token* tkn, int n_args, const char* type){
-	printf("hello");
-	if(strcmp(type, "variable")){
+	if(!strcmp(type, "variable")){
 		Table[ind-1].sno=ind;
 		strcpy(Table[ind-1].lexeme_name, tkn->lexeme);
 		strcpy(Table[ind-1].type, "var");
@@ -82,7 +81,7 @@ void insertIntoTable(struct token* tkn, int n_args, const char* type){
 		Table[ind-1].num_args = -1;
 		++ind;
 	}
-	else if(strcmp(type, "function")){
+	else if(!strcmp(type, "function")){
 		Table[ind-1].sno=ind;
 		strcpy(Table[ind-1].lexeme_name, tkn->lexeme);
 		strcpy(Table[ind-1].type, "func");
@@ -94,8 +93,8 @@ void insertIntoTable(struct token* tkn, int n_args, const char* type){
 }
 
 void printTable(int n){
-	for(int i=0;i<n;i++){
-		printf("%d\t\t\t%s\t\t%s\t\t%s\t\t%d\t\t\t%s\n", Table[i].sno, Table[i].lexeme_name, Table[i].dtype ,Table[i].retype, Table[i].num_args, Table[i].type);
+	for(int i=0;i<n-1;i++){
+		printf("%d\t\t%s\t\t%s\t\t%s\t\t%d\t\t%s\n", Table[i].sno, Table[i].lexeme_name, Table[i].dtype ,Table[i].retype, Table[i].num_args, Table[i].type);
 	}
 }
 
@@ -112,13 +111,17 @@ int isFunc(FILE* f, char c){
 		if(n_args==0) n_args++;
 		fseek(f,(0-chars-1),SEEK_CUR);
 	}
+	else
+	{
+		n_args=-1;
+	}
 	return n_args;
 }
 
 struct token getNextToken(FILE *fin){
 	char c;
 	struct token tkn = {.row=-1};
-	int gotToken=1;
+	int gotToken=0;
 	while(!gotToken && (c=fgetc(fin))!=EOF){
 		if(isSpecialSymbol(c)){
 			fillToken(&tkn,c,row,col);
@@ -134,7 +137,7 @@ struct token getNextToken(FILE *fin){
 					gotToken=1;
 					fseek(fin,-1,SEEK_CUR);
 				}else{
-					strcpy(tkn.lexeme,'++');
+					strcpy(tkn.lexeme,"++");
 					tkn.row=row;
 					tkn.col=col;
 					col+=2;
@@ -151,7 +154,7 @@ struct token getNextToken(FILE *fin){
 				gotToken=1;
 				fseek(fin,-1,SEEK_CUR);
 			}else{
-				strcpy(tkn.lexeme,'==');
+				strcpy(tkn.lexeme,"==");
 				tkn.row=row;
 				tkn.col=col;
 				col+=2;
@@ -168,7 +171,7 @@ struct token getNextToken(FILE *fin){
 				col++;
 			}
 
-			strcpy(tkn.lexeme, 'num');
+			strcpy(tkn.lexeme, "num");
 			gotToken=1;
 			fseek(fin,-1,SEEK_CUR);
 		}
@@ -179,6 +182,7 @@ struct token getNextToken(FILE *fin){
 		else if(isalpha(c)){
 			tkn.row=row;
 			tkn.col=col;
+			tkn.lexeme[0]=c;
 
 			int k=1;
 			while((c=fgetc(fin))!=EOF && isalnum(c)){
@@ -190,12 +194,16 @@ struct token getNextToken(FILE *fin){
 			if(!isKeyword(tkn.lexeme)){
 				if(!searchTable(tkn.lexeme)){
 					int n_args = isFunc(fin,c);
-					if(n_args == -1){
+					if(n_args == -1)
+					{
 						insertIntoTable(&tkn, n_args, "variable");
-					}else{
+					}
+					else
+					{
 						insertIntoTable(&tkn, n_args, "function");
 					}
 				}
+				// strcpy(tkn.lexeme)
 			}
 			if(isDatatype(tkn.lexeme)){
 				strcpy(dbuf,tkn.lexeme);
@@ -227,7 +235,7 @@ int main(){
     {
         printf("<%s, %d, %d>\n", tkn.lexeme, tkn.row, tkn.col);
     }
-    printf("S.No.\t\t   LexemeName\t\t DataType\t ReturnType\t\tNumArgs\t\tTokenName\n");
+    printf("S.No.\t LexemeName \t DataType \t ReturnType \t NumArgs \t TokenName\n");
     int num_entries = ind;
     printTable(num_entries);
     fclose(f1);
