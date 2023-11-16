@@ -1,30 +1,41 @@
-#include<stdio.h>
-#include<unistd.h>
-#include<sys/stat.h>
-#include<fcntl.h>
-#include<stdlib.h>
-#include<string.h>
+// Write a program to print the lines of a file that contain a word
+// given as the program argument (a simple version of grep UNIX utility).
 
-int main(int argc, char const *argv[]){
-	int sfd,i=0,k=0;
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(int argc, char const *argv[])
+{
+	int sfd, i = 0, k = 0;
 	char ch[100], chr;
-	if(argc!=3){
+	if (argc != 3)
+	{
 		printf("\nInsufficient Arguments\n");
 		exit(1);
 	}
-	if((sfd=open(argv[2],O_RDONLY)) == -1){
+	if ((sfd = open(argv[2], O_RDONLY)) == -1)
+	{
 		printf("File not found.\n");
 		exit(2);
 	}
-	while((read(sfd, &chr, 1)) > 0){
-		if(chr != '\n'){
+	while ((read(sfd, &chr, 1)) > 0)
+	{
+		if (chr != '\n')
+		{
 			ch[i++] = chr;
-		} else{
+		}
+		else
+		{
 			k++;
 			ch[i] = '\0';
-			i=0;
-			if(strstr(ch,argv[1]) != NULL){
-				printf("Line : %d\t %s\n",k,ch);
+			i = 0;
+			if (strstr(ch, argv[1]) != NULL)
+			{
+				printf("Line : %d\t %s\n", k, ch);
 			}
 		}
 	}

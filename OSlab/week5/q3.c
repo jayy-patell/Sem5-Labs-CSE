@@ -38,7 +38,7 @@ int is_prime(n)
 {
     if (n < 2)
         return 0;
-    for (int i= 2; i < n; i++)
+    for (int i = 2; i < n; i++)
     {
         if (n % i == 0)
             return 0;
@@ -46,47 +46,45 @@ int is_prime(n)
     return 1;
 }
 
-void* child_thread( void * param )
+void *child_thread(void *param)
 {
     int id = is_prime((int)param);
-    
+
     return (void *)id;
 }
 
 int main()
 {
     int n, s, e;
-    pthread_t* threads;
+    pthread_t *threads;
     int *return_value;
 
-    printf("Enter Start: "); 
-    // n = 6;
+    printf("Enter Start: ");
     scanf("%d", &s);
 
     printf("Enter End: ");
     scanf("%d", &e);
-    
+
     n = e - s + 1;
 
-    threads = (pthread_t*) calloc(n , sizeof(pthread_t));
-    return_value = (int*) calloc(n , sizeof(int));
+    threads = (pthread_t *)calloc(n, sizeof(pthread_t));
+    return_value = (int *)calloc(n, sizeof(int));
 
-    for (int i = 0; i < n; i ++)
+    for (int i = 0; i < n; i++)
     {
-        pthread_create( threads+i, 0, &child_thread, (void*)(s+ i) );
+        pthread_create(threads + i, 0, &child_thread, (void *)(s + i));
     }
 
-    for ( int i=0; i<n; i++ )
+    for (int i = 0; i < n; i++)
     {
-        pthread_join( threads[i], (void**)(return_value+i) );
+        pthread_join(threads[i], (void **)(return_value + i));
     }
 
-    // // Result
+    // Result
     for (int i = 0; i < n; i++)
     {
         if (return_value[i])
-            printf("%d  ", s+i);
-    }    
+            printf("%d  ", s + i);
+    }
     printf("\n");
-
 }
