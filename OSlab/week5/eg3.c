@@ -1,23 +1,24 @@
-#include <pthread.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int mkfifo(const char *filename, mode_t mode);
+
+#include <unistd.h>
+#include <stdlib.h>
 #include <stdio.h>
-void* child_thread( void * param )
-{
-int id = (int)param;
-printf( "Start thread %i\n", id );
-return (void *)id;
-}
+#include <sys/types.h>
+#include <sys/stat.h>
+
 int main()
 {
-pthread_t thread[10];
-int return_value[10];
-for ( int i=0; i<10; i++ )
-{
-pthread_create( &thread[i], 0, &child_thread, (void*)i );
-//always pass the parameter by casting it to void
+	int res = mkfifo("/tmp/my_fifo", 0773);
+	if (res == 0) printf("FIFO created\n");
+	exit(EXIT_SUCCESS);
 }
-for ( int i=0; i<10; i++ )
-{
-pthread_join( thread[i], (void**)&return_value[i] );
-printf( "End thread %i\n", return_value[i] );
-}
-}
+
+// We can look for the pipe with
+// $ ls -lF /tmp/my_fifo
+// prwxr-xr-x 1 rick users 0 July 10 14:55 /tmp/my_fifo|
+
+// Notice that the first character of output is a p, indicating a pipe. The | symbol at the end
+// is added by the ls command’s -F option and also indicates a pipe.
