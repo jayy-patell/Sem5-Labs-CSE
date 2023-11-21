@@ -27,6 +27,7 @@ void *reader(void *arg)
             sem_post(&wrt);
         }
         sem_post(&mutex);
+        // printf("Reading %d.....\n", readCount);
         sleep(2);
     } while (1);
 }

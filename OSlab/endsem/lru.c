@@ -64,8 +64,8 @@ int main()
                 }
                 pgTable[j].refno++;
             }
-            pgTable[highest].pgno = pgno;
-            pgTable[highest].refno = 0;
+            pgTable[highest].pgno = pgno; // Replace the page with highest refno
+            pgTable[highest].refno = 0;   // Reset the refno
         }
         display(pgTable);
     }

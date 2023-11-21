@@ -3,6 +3,7 @@
 #include <semaphore.h>
 int buf[5], f, r;
 sem_t mutex, full, empty;
+int semValue;
 void *produce(void *arg)
 {
 	int i;
@@ -15,7 +16,9 @@ void *produce(void *arg)
 		sleep(2);
 		sem_post(&mutex);
 		sem_post(&full);
-		printf("full %d\n", full);
+
+		sem_getvalue(&full, &semValue);
+		printf("full %d\n", semValue);
 	}
 }
 void *consume(void *arg)
@@ -24,7 +27,8 @@ void *consume(void *arg)
 	for (i = 0; i < 10; i++)
 	{
 		sem_wait(&full);
-		printf("full %d\n", full);
+		sem_getvalue(&full, &semValue);
+		printf("full %d\n", semValue);
 		sem_wait(&mutex);
 		item = buf[(++f) % 5];
 		printf("consumed item is %d\n", item);

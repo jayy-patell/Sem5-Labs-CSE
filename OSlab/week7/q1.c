@@ -12,7 +12,7 @@ void *produce(void *arg)
 {
     while (1)
     {
-        sem_wait(&atmost10);
+        // sem_wait(&atmost10);
         sem_wait(&empty);
         sem_wait(&mutex);
         printf("Produced Item : %d\n", produced);
@@ -21,10 +21,10 @@ void *produce(void *arg)
         sleep(1);
         sem_post(&mutex);
         sem_post(&full);
-        if (produced - consumed <= 10)
-        {
-            sem_post(&atmost10);
-        }
+        // if (produced - consumed <= 10)
+        // {
+        //     sem_post(&atmost10);
+        // }
     }
 }
 
@@ -40,10 +40,10 @@ void *consume(void *arg)
         printf("Consumed Item : %d\n", item);
         sem_post(&mutex);
         sem_post(&empty);
-        if (produced - consumed <= 10)
-        {
-            sem_post(&atmost10);
-        }
+        // if (produced - consumed <= 10)
+        // {
+        //     sem_post(&atmost10);
+        // }
         sleep(1);
     }
 }
